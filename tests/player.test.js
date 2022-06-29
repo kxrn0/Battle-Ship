@@ -49,16 +49,12 @@ test("Test random attack", () => {
         name: "Touwata"
     }],3, 3);
 
-    player1.attack(board, {x : 0, y : 0});
-    player1.attack(board, {x : 1, y : 0});
-    player1.attack(board, {x : 2, y : 0});
-    
-    player1.attack(board, {x : 0, y : 1});
-    player1.attack(board, {x : 2, y : 1});
-
-    player1.attack(board, {x : 0, y : 2});
-    player1.attack(board, {x : 1, y : 2});
-    player1.attack(board, {x : 2, y : 2});
+    for (let x = 0; x < 3; x++)
+        for (let y = 0; y < 3; y++) 
+            if (x == 1 && y == 1)
+                continue;
+            else
+                player1.attack(board, {x, y});
 
     expect(player1.random_attack(board).coordinates).toEqual({x : 1, y : 1});
 });

@@ -1,0 +1,39 @@
+.name-screen {
+    background: rgb(34, 2, 2);
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: top .33s;
+    z-index: 2;
+}
+
+.name-screen .name-form {
+    width: fit-content;
+    display: grid;
+    flex-direction: column;
+    margin: 100px auto;
+}
+
+.name-screen .name {
+    color: azure;
+    margin-bottom: 20px;
+}
+
+.name-screen .name input[type="text"]{
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    width: 10rem;
+    font-size: 1rem;
+}
+
+.name-form .enter {
+    background: rgb(251, 48, 48);
+    color: azure;
+    transition: background-color .33s;
+}
+
+.name-form .enter:hover {
+    background: rgb(231, 39, 39);
+}

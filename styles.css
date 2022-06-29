@@ -1,0 +1,184 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(3, 0, 26);
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.25rem;
+    border-radius: 10px;
+    border: none;
+}
+
+.game-screen {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.player-board {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player-board .player-name {
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.player-board.player .player-name {
+    background: rgb(172, 172, 222);
+}
+
+.player-board.player.in-turn .player-name {
+    box-shadow: 0 0 10px 5px rgb(75, 151, 209);
+    border-color: azure;
+}
+
+.player-board.ai .player-name {
+    background: rgb(255, 90, 90);
+}
+
+.player-board.ai.in-turn .player-name {
+    box-shadow: 0 0 10px 5px rgb(255, 154, 154);
+    border-color: azure;
+}
+
+.player-board .board {
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10, 50px);
+    position: relative;
+}
+
+.board .cell {
+    background: rgb(141, 141, 232);
+    background-size: cover;
+    border: 2px solid rgb(102, 233, 233);
+    transition: background-color .33s;
+}
+
+.board .cell.enemy:not(.wrecked-cell):not(.tried-cell):hover {
+    background: rgb(104, 104, 192);
+    cursor: crosshair;
+}
+
+.board .cell.visible:not(.wrecked-cell):not(.tried-cell) {
+    background: rgb(15, 65, 135);
+}
+
+.board .cell.cell.visible:not(.wrecked-cell):not(.tried-cell):hover {
+    background: rgb(15, 65, 135);
+}
+
+.player-board .board .off-turn {
+    background: rgba(78, 9, 9, 0.25);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.player-board .hidden {
+    display: none;
+}
+
+.player-board .cell.tried-cell {
+    background-image: url("./images/smoke.png");
+}
+
+.player-board .cell.wrecked-cell {
+    background-image: url("./images/explode.png");
+}
+
+.modal {
+    background: rgb(200, 233, 233, .25);
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    transition: top .33s;
+}
+
+.not-shown {
+    top: -100%;
+    pointer-events: none;
+}
+
+.shown {
+    top: 0;
+}
+
+.modal .modal-content {
+    background: rgb(179, 207, 239, .5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 50px 10px rgb(3, 3, 27);
+}
+
+.modal .game-over {
+    background: rgba(18, 18, 84, 0.5);
+    color: azure;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px 5px rgb(40, 40, 97);
+    ;
+    text-align: center;
+}
+
+.modal .game-over .head {
+    font-size: 5rem;
+    margin-bottom: 20px;
+}
+
+.modal .game-over .message {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.modal .game-over .play-again {
+    background: rgb(140, 242, 140);
+    transition: background-color .33s;
+}
+
+.modal .game-over .play-again:hover {
+    background: rgb(105, 213, 119);
+}
+
+@media screen and (max-width: 1000px) {
+    .player-board .board {
+        grid-template-columns: repeat(10, 30px);
+        grid-template-rows: repeat(10, 30px);
+    }   
+
+    .player-board .player-name {
+        padding: 10px;
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .game-screen {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
