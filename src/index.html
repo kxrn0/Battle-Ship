@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./images/favicon.ico">
+    <script src="main.js" type="module" defer></script>
+    <title>Battle Ship</title>
+    <!-- 
+        explosion.png : <a href="https://www.flaticon.com/free-icons/explosion" title="explosion icons">Explosion icons created by Victoruler - Flaticon</a>
+        sunk.png : <a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by Pixel perfect - Flaticon</a>
+        smoke.png : <a href="https://www.flaticon.com/free-icons/smoke" title="smoke icons">Smoke icons created by Freepik - Flaticon</a>
+     -->
+</head>
+<body>
+    <section class="name-screen shown">
+        <form action="" class="name-form">
+            <div class="name"><label for="player-name">Name : </label><input type="text" maxlength="10" id="player-name"></div>
+            <button class="enter" type="submit">Enter</button>
+        </form>
+    </section>
+    <section class="placement-screen shown">
+        <div class="content">
+            <h2>Place your <span class="current-ship">Carrier</span></h2>
+            <div class="segments">
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+                <div class="segment"></div>
+            </div>
+            <input type="checkbox" class="rotate">
+            <div class="grid">
+            </div>
+        </div>
+    </section>
+    <main class="game-screen">
+        <div class="player-board player in-turn">
+            <div class="player-name">kxrn0</div>
+            <div class="board"></div>
+        </div>
+        <div class="player-board ai">
+            <div class="player-name">愛</div>
+            <div class="board">
+                <div class="off-turn hidden"></div>
+            </div>
+        </div>
+    </main>
+    <div class="modal not-shown">
+        <div class="modal-content">
+            <div class="game-over">
+                <h2 class="head">Game Over!</h2>
+                <p class="message"><span>愛</span> is the victor!</p>
+                <button class="play-again">Play Again</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

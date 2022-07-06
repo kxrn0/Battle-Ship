@@ -1,6 +1,7 @@
 import create_board from "./board.js";
 import create_player from "./player.js";
 import { distance, segments } from "./utilities.js";
+import "./imports.js"
 
 const dream = document.querySelector(".placement-screen .segments");
 const modal = document.querySelector(".modal");
